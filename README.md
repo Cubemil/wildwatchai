@@ -4,11 +4,17 @@ URL: https://netstorage.fb-emw.de/s/cfWSjtQsdyzkBAB <br>
 PW: iEpLjFXQcH
 
 # Roadmap
-## Time
-
+## Zeit
+- 
 ## Knowledge 
+- basic Python Skills bei allen Mitgliedern
 
 ## Hardware
+- GPU Power benötigt
+- VCS und remotes arbeiten per gitlab repo
+- PyCharm Projekte
+    - benötigt Modell, Python Interpreter und durchdachte Dateistruktur
+    
 
 <br><br><br><br>
 <br><br><br><br>
