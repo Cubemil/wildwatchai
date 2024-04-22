@@ -1,11 +1,7 @@
 # WildWatchAI
 
-## Name
-WildWatchAI
-
-## Description
-
-## Roadmap
+### URL: https://netstorage.fb-emw.de/s/cfWSjtQsdyzkBAB
+### PW: iEpLjFXQcH
 
 ## Authors and acknowledgment
 Developers:
