@@ -5,9 +5,17 @@ PW: iEpLjFXQcH
 
 # Roadmap
 ## Zeit
-- 
+- wöchentliche Aufgaben bzw. neue Steps
+- Übung jede Woche
+- 1x pro Woche Meeting (remote evtl)
+- 5h Arbeitsaufwand
+    - Wissenserweiterung in VL, Übung und Praktikum
+    - externe Arbeit am Projekt
+
 ## Knowledge 
 - basic Python Skills bei allen Mitgliedern
+- Vorwissen aus maschinellem Lernen
+- 
 
 ## Hardware
 - GPU Power benötigt
