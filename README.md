@@ -1,7 +1,18 @@
 # WildWatchAI
 
-### URL: https://netstorage.fb-emw.de/s/cfWSjtQsdyzkBAB
-### PW: iEpLjFXQcH
+URL: https://netstorage.fb-emw.de/s/cfWSjtQsdyzkBAB <br>
+PW: iEpLjFXQcH
+
+# Roadmap
+## Time
+
+## Knowledge 
+
+## Hardware
+
+<br><br><br><br>
+<br><br><br><br>
+
 
 ## Authors and acknowledgment
 Developers:
