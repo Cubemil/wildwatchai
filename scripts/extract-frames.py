@@ -1,30 +1,78 @@
-import cv2  # OpenCV library for image and video processing
-import os   # OS library for file and directory operations
+import os
+import cv2
+import numpy as np
+from PIL import Image
 
-# Directory containing the .MOV files
-video_directory = '/Users/clemensabraham/wildwatchai/video-input/*'
-# Directory to save the extracted images
-output_directory = '/Users/clemensabraham/wildwatchai/frame-output/'
+# Verzeichnisse
+input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LNW01/Neu2'  # Ordner mit Videos
+output_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/output'  # Ordner für extrahierte Bilder
 
-# Ensure the output directory exists
-if not os.path.exists(output_directory):
-    os.makedirs(output_directory)
+# Erstellen des Ausgabe-Verzeichnisses, falls es nicht existiert
+os.makedirs(output_dir, exist_ok=True)
 
-# Iterate over video files in the directory
-for filename in os.listdir(video_directory):
-    if filename.endswith(".MOV"):
-        video_path = os.path.join(video_directory, filename)
-        cap = cv2.VideoCapture(video_path)  # Capture the video
-        count = 0
+# Unterstützte Videoerweiterungen
+video_extensions = ('.mp4', '.avi', '.mov', '.MP4', '.AVI', '.MOV')
+target_size = (640, 640)
 
-        while cap.isOpened():
-            ret, frame = cap.read()  # Read a frame
-            if not ret:
-                break  # Exit if no frame is returned
-            # Save the frame as an image file
-            image_name = f"{os.path.splitext(filename)[0]}_frame{count:04d}.jpg"
-            image_path = os.path.join(output_directory, image_name)
-            cv2.imwrite(image_path, frame)
-            count += 1
+def crop_to_target_size(image, target_size):
+    width, height = image.size
+    left = (width - target_size[0]) / 2
+    top = (height - target_size[1]) / 2
+    right = (width + target_size[0]) / 2
+    bottom = (height + target_size[1]) / 2
+    return image.crop((left, top, right, bottom))
 
-        cap.release()  # Release the video capture object
+def normalize_image(image):
+    image_array = np.asarray(image, dtype=np.float32) / 255.0
+    return Image.fromarray((image_array * 255).astype(np.uint8))
+
+def extract_frames(video_path, output_dir, target_size):
+    video_name = os.path.basename(video_path)
+    cap = cv2.VideoCapture(video_path)
+    fps = cap.get(cv2.CAP_PROP_FPS)  # Frames pro Sekunde
+    frame_interval = int(fps)  # Intervall für einen Frame pro Sekunde
+    frame_idx = 0
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        # Einen Frame pro Sekunde extrahieren
+        if frame_idx % frame_interval == 0:
+            # Bild in RGB konvertieren
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            image = Image.fromarray(frame)
+
+            # Bildgröße anpassen und zuschneiden
+            image = crop_to_target_size(image, target_size)
+
+            # Bild normalisieren
+            image = normalize_image(image)
+
+            # Bild speichern
+            output_path = os.path.join(output_dir, f'{video_name}_frame_{frame_idx}.jpg')
+            image.save(output_path, format='JPEG')
+            print(f'Frame {frame_idx} gespeichert: {output_path}')
+
+        frame_idx += 1
+
+    cap.release()
+    print(f'Fertig mit Video: {video_path}')
+
+# Durchlaufe alle Videos im Eingabeverzeichnis und Unterverzeichnissen
+found_videos = False
+for root, dirs, files in os.walk(input_dir):
+    print(f'Durchsuche Verzeichnis: {root}')  # Debug-Ausgabe
+    for video_file in files:
+        print(f'Gefundene Datei: {video_file}')  # Debug-Ausgabe
+        if video_file.endswith(video_extensions):
+            found_videos = True
+            video_path = os.path.join(root, video_file)
+            print(f'Video gefunden: {video_path}')  # Debug-Ausgabe
+            extract_frames(video_path, output_dir, target_size)
+
+if not found_videos:
+    print(f'Keine Videos im Verzeichnis gefunden: {input_dir}')
+
+print('Bildextraktion abgeschlossen.')
