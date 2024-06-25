@@ -9,6 +9,9 @@ Extrahierte Frames: https://cloud.hs-anhalt.de/s/sjH4Am2B36FZAfY
 Liste zu erkennender Tierarten: https://cloud.hs-anhalt.de/s/frgPmPHoPotQrpX
     - Einige kommen recht selten vor (mit * markiert), diese sind nicht Teil des Testsets und müssen nicht erkannt werden. Falls Ihr Team diese dennoch erkennen kann, gibt es sicherlich ein paar Bonuspunkte!
 
+## Git Links
+https://github.com/google-research/vision_transformer/blob/main/vit_jax/
+
 ## Models
 - DETR (End-to-End Object Detection) model with ResNet-50 backbone
 
