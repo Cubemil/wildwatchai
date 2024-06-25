@@ -4,29 +4,20 @@ import numpy as np
 from PIL import Image
 
 # Verzeichnisse
-input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LNW01/Neu2'  # Ordner mit Videos
-output_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/output'  # Ordner für extrahierte Bilder
+input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LostAnimals/Fledermaus'  # Ordner mit Videos
+output_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LostAnimals/frames'  # Ordner für extrahierte Bilder
 
 # Erstellen des Ausgabe-Verzeichnisses, falls es nicht existiert
 os.makedirs(output_dir, exist_ok=True)
 
 # Unterstützte Videoerweiterungen
 video_extensions = ('.mp4', '.avi', '.mov', '.MP4', '.AVI', '.MOV')
-target_size = (640, 640)
-
-def crop_to_target_size(image, target_size):
-    width, height = image.size
-    left = (width - target_size[0]) / 2
-    top = (height - target_size[1]) / 2
-    right = (width + target_size[0]) / 2
-    bottom = (height + target_size[1]) / 2
-    return image.crop((left, top, right, bottom))
 
 def normalize_image(image):
     image_array = np.asarray(image, dtype=np.float32) / 255.0
     return Image.fromarray((image_array * 255).astype(np.uint8))
 
-def extract_frames(video_path, output_dir, target_size):
+def extract_frames(video_path, output_dir):
     video_name = os.path.basename(video_path)
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)  # Frames pro Sekunde
@@ -43,9 +34,6 @@ def extract_frames(video_path, output_dir, target_size):
             # Bild in RGB konvertieren
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             image = Image.fromarray(frame)
-
-            # Bildgröße anpassen und zuschneiden
-            image = crop_to_target_size(image, target_size)
 
             # Bild normalisieren
             image = normalize_image(image)
@@ -70,7 +58,7 @@ for root, dirs, files in os.walk(input_dir):
             found_videos = True
             video_path = os.path.join(root, video_file)
             print(f'Video gefunden: {video_path}')  # Debug-Ausgabe
-            extract_frames(video_path, output_dir, target_size)
+            extract_frames(video_path, output_dir)
 
 if not found_videos:
     print(f'Keine Videos im Verzeichnis gefunden: {input_dir}')
