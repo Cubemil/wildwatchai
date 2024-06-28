@@ -4,8 +4,8 @@ import numpy as np
 from PIL import Image
 
 # Verzeichnisse
-input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LostAnimals/Fledermaus'  # Ordner mit Videos
-output_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LostAnimals/frames'  # Ordner für extrahierte Bilder
+input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/lnw03/sortiert'  # Ordner mit Videos
+output_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/outputlnw03+02b'  # Ordner für extrahierte Bilder
 
 # Erstellen des Ausgabe-Verzeichnisses, falls es nicht existiert
 os.makedirs(output_dir, exist_ok=True)

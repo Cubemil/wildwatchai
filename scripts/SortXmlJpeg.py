@@ -37,9 +37,9 @@ def find_and_copy_pairs(input_dir, pairs_dir, nulled_dir):
             print(f'Kein entsprechendes XML für {jpg_file} gefunden. Datei in Nulled kopiert.')
 
 # Verzeichnisse
-input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/LostAnimals/frames'  # Pfad zum Eingabeverzeichnis
+input_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/outputlnw02+03a/f'  # Pfad zum Eingabeverzeichnis
 pairs_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/pairs'  # Pfad zum pairs-Verzeichnis
-nulled_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/nulled'  # Pfad zum nulled-Verzeichnis
+nulled_dir = '/Users/clemensabraham/PycharmProjects/wildwatchai/nulled' # Pfad zum nulled-Verzeichnis
 
 # Funktion aufrufen
 find_and_copy_pairs(input_dir, pairs_dir, nulled_dir)
