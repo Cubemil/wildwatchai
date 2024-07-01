@@ -1,17 +1,23 @@
 <template>
   <div class="navbar">
     <ul>
-      <li><a class="active">Home</a></li>
-      <li><a>Gamification</a></li>
-      <li><a>Contact</a></li>
-      <li style="float:right"><a>About</a></li>
+      <li>
+        <router-link to="/" active-class="active-link">
+          <a id="home">Home</a>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/gamification" active-class="active-link">
+          <a id="gamification">Gamification</a>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
 }
 </script>
 
@@ -43,16 +49,16 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 10px;
   text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li:hover:not(.active-link) {
   background-color: #111;
   border-radius: 5px;
 }
 
-.active {
+.active-link {
   background-color: #04AA6D;
   border-radius: 5px;
 }

@@ -1,14 +1,18 @@
 <template>
-  <Home/>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import Home from '@/views/Home.vue'
+import Gamification from '@/views/Gamification.vue'
 
 export default {
   name: 'App',
   components: {
-    Home
+    Home,
+    Gamification
   }
 }
 </script>
