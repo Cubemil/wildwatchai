@@ -27,6 +27,7 @@ export default {
   top: 0;
   left: 0;
   font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 ul {
@@ -34,7 +35,7 @@ ul {
   margin: 0;
   padding: 10px;
   overflow: hidden;
-  background-color: #333;
+  background-color: #609966;
 }
 
 li {
@@ -54,12 +55,12 @@ li a {
 }
 
 li:hover:not(.active-link) {
-  background-color: #111;
+  background-color: #9DC08B;
   border-radius: 5px;
 }
 
 .active-link {
-  background-color: #04AA6D;
+  background-color: #40513B;
   border-radius: 5px;
 }
 </style>
