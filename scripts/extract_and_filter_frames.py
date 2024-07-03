@@ -1,7 +1,7 @@
 import cv2
 import os
 import torch
-from torchvision.import transforms v2
+from torchvision import transforms as cv2
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
 import numpy as np

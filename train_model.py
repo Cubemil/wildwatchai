@@ -37,28 +37,13 @@ class SimpleCocoDataset(Dataset):
         return img, target
 
     def __len__(self):
-        return len(self.ids))
+        return len(self.ids)
 
 def get_data_loader(root, annotation, batch_size, shuffle=True):
     dataset = SimpleCocoDataset(root, annotation)
     return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=4,
                       collate_fn=lambda x: tuple(zip(*x)))
 
-
-def get_model(num_classes):
-
-
-# ... (wie zuvor)
-
-def train_one_epoch(model, criterion, optimizer, data_loader, device):
-
-
-# ... (wie zuvor)
-
-def evaluate(model, data_loader, device):
-
-
-# ... (wie zuvor)
 
 def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

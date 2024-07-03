@@ -1,3 +1,7 @@
+### automatically find moving objects in videos and save the frames as images
+    ## war ungenau, hatte nicht alle Klassen
+    ## am Ende wurde alles selber sortiert
+
 import os
 import cv2
 import torch

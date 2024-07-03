@@ -1,3 +1,5 @@
+### albumentations von pytorch um selber bilder zu augmentieren
+
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import cv2
