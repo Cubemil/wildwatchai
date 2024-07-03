@@ -1,3 +1,6 @@
+## Von Transformers Framework bereitgestellt
+## Test einer automatisierten Pipeline für das Einlesen von Daten, Aufteilen in Batches und Augmentieren von Bildern
+
 # Copyright 2024 Google LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
