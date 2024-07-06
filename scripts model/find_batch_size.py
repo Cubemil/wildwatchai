@@ -5,7 +5,7 @@ import sys
 import os
 
 # Verwenden Sie einen rohen String für den Pfad
-detr_path = r"C:\Users\C1\PycharmProjects\wildwatchai\detr-resnet-50"
+detr_path = r"/detr-resnet-50"
 sys.path.append(detr_path)
 
 
