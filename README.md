@@ -1,18 +1,51 @@
 ## WildWatchAI
 
-# Daten
+## Introduction
+
+This repository contains the code and documentation for fine-tuning the facebook detr-resnet-50 model from huggingface.com on our custom dataset on local nvidia 4080 gpu. This project demonstrates the process of annotating a custom dataset, training the detr-resnet model and evaluating its performance.
+
+
+## Dataset
+
+The dataset consists of self-annotated images of various animals. The images were annotated by hand with bounding boxes. The images were augmented and split 70/20/10 into Train/Validation/Test subsets and evenly distributed using RoboFlow's web interface. The annotations were exported in the COCO format, which includes the class label and the bounding box coordinates in a .json file.
+
+
+# Dataset source:
 URL: https://netstorage.fb-emw.de/s/cfWSjtQsdyzkBAB <br>
 PW: iEpLjFXQcH
 
-Extrahierte Frames: https://cloud.hs-anhalt.de/s/sjH4Am2B36FZAfY
+# Annotation tool:
+https://www.makesense.ai
+
+# Data preperation scripts (scripts dataset folder):
+- Extract frames from video files: extract-frames.py
+- Move extracted frames to orient: auto-orient.py
+- Sort annotaded frames: SortXmljpeg.py
+- Custom frame augmentation: augmentatiopn.py
+
+# Training dataset:
+https://app.roboflow.com/wildwatch/animal-trail-detection/2
+or
+https://cloud.hs-anhalt.de/s/W2b7QMC9TgMcpqr
+
+# Extrahierte Frames: https://cloud.hs-anhalt.de/s/sjH4Am2B36FZAfY
 
 Liste zu erkennender Tierarten: https://cloud.hs-anhalt.de/s/frgPmPHoPotQrpX
     - Einige kommen recht selten vor (mit * markiert), diese sind nicht Teil des Testsets und müssen nicht erkannt werden. Falls Ihr Team diese dennoch erkennen kann, gibt es sicherlich ein paar Bonuspunkte!
 
-## Git Links
-https://github.com/google-research/vision_transformer/blob/main/vit_jax/
 
-## Models
+## Model Training
+
+1. **Prepared Dataset**: https://cloud.hs-anhalt.de/s/W2b7QMC9TgMcpqr Annotated, augmented, polished, split, and exported data.
+2. **Installed Dependencies in virtual environment**: requirements.txt installed the necessary libraries and dependencies, including PyTorch, pycocotools, transformers, supervision, roboflow etc.
+3. **Train the Model**: Clone git repository and check correct file path destinations. Run the detrtraining.py script (in folder: script training) to train the model. Epochs: ~250
+
+- write in console to run tensorboard: --logdir=C:\Users\C1\pycharmprojects\wildwatchai\tb_logs
+
+- finetuning gpu setup (find batch size for gpu): find_batch_size.py 
+
+
+## Model introduction
 - DETR (End-to-End Object Detection) model with ResNet-50 backbone
 
 DEtection TRansformer (DETR) model trained end-to-end on COCO 2017 object detection (118k annotated images). It was introduced in the paper End-to-End Object Detection with Transformers by Carion et al. and first released in this repository.
@@ -23,14 +56,8 @@ Model description
 The DETR model is an encoder-decoder transformer with a convolutional backbone. Two heads are added on top of the decoder outputs in order to perform object detection: a linear layer for the class labels and a MLP (multi-layer perceptron) for the bounding boxes. The model uses so-called object queries to detect objects in an image. Each object query looks for a particular object in the image. For COCO, the number of object queries is set to 100
     -> https://huggingface.co/facebook/detr-resnet-50
 
-- Ultralytics YOLOv8 
-    -> https://huggingface.co/Ultralytics/YOLOv8
 
-- YOLOv8n validated for Unity Sentis (Version 1.4.0-pre.3*): 
-    YOLOv8n is a real-time multi-object recognition model confirmed to run in Unity 2023.
-    -> https://huggingface.co/unity/sentis-YOLOv8n
-
-# Aufgabe
+## Aufgabe
  FB5 – Informatik und Sprachen: Künstliche Intelligenz (IMS)
 * Wie können Methoden der KI für das Monitoring der Räuberdichte eingesetzt werden?
 * Verfügbare Daten:
@@ -61,31 +88,16 @@ Aufgabenstellung:
 
 - object classification and visualisation with edge artificial intelligence for a customised camera trap platform, https://www.sciencedirect.com/science/article/pii/S157495412300482X
 
--a method for automatic identification and separation of wildlife images using ensemble learning https://www.sciencedirect.com/science/article/abs/pii/S1574954123002911
+- a method for automatic identification and separation of wildlife images using ensemble learning https://www.sciencedirect.com/science/article/abs/pii/S1574954123002911
 
 
 # Pretrained Models:
 - Trail Camera Animal Detection, 1239 Images, https://universe.roboflow.com/sanskriti-jain/trail-camera-animal-detection/model/6
 - My Datasets, 4473 Images: https://universe.roboflow.com/tayfun-kok-dvf7t/my-datasets-7tndo/dataset/7
 
-# Image Datasets:
-- Coco: 79 Kategorien
-- Object365: 365 Kategorien
-- lvis: 1202 Kategorien
-- open-images-v7: 600 Kategorien
 
-- Animals-detection-images-dataset: 21 Kategorien, kaggle.com https://www.kaggle.com/datasets/antoreepjana/animals-detection-images-dataset
-
-- Animal-kingdom: https://paperswithcode.com/paper/animal-kingdom-a-large-and-diverse-dataset
-
-- Ap-10k: 10kimgaes, 23 animal families, 60 species: https://paperswithcode.com/dataset/ap-10k
-
-- Bavarian Highway Directorate, Germany 
-
-- ImageNet
-
-# Roadmap
-## Zeit
+## Roadmap
+# Zeit
 - wöchentliche Aufgaben bzw. neue Steps
 - Übung jede Woche
 - 1x pro Woche Meeting (remote evtl)
@@ -93,12 +105,8 @@ Aufgabenstellung:
     - Wissenserweiterung in VL, Übung und Praktikum
     - externe Arbeit am Projekt
 
-## Knowledge 
-- basic Python Skills bei allen Mitgliedern
-- Vorwissen aus maschinellem Lernen
-- 
 
-## Hardware
+# Hardware
 - GPU Power benötigt
 - VCS und remotes arbeiten per gitlab repo
 - PyCharm Projekte

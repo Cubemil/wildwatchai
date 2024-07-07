@@ -1,0 +1,15 @@
+torch==2.0.1
+torchvision==0.15.2
+pytorch-lightning==2.0.3
+transformers==4.30.2
+numpy==1.24.3
+psutil==5.9.5
+GPUtil==1.4.0
+
+#torch
+#torchvision
+#pytorchlightning
+#transformers
+#numpy
+#psutil
+#GPUtil
