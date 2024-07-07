@@ -40,6 +40,8 @@ Liste zu erkennender Tierarten: https://cloud.hs-anhalt.de/s/frgPmPHoPotQrpX
 2. **Installed Dependencies in our virtual environment**: Installed the necessary libraries and dependencies, including PyTorch, pycocotools, transformers, supervision, roboflow etc.
 3. **Train the Model**: Clone git repository and check correct file path destinations. Run the detrtraining script (in folder: script training) to train the model. Epochs: ~250
 
+- write in console to run tensorboard: --logdir=C:\Users\C1\pycharmprojects\wildwatchai\tb_logs
+
 - finetuning gpu setup (find batch size for gpu): find_batch_size.py 
 
 
