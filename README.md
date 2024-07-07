@@ -25,6 +25,8 @@ https://www.makesense.ai
 
 # Training dataset:
 https://app.roboflow.com/wildwatch/animal-trail-detection/2
+or
+https://cloud.hs-anhalt.de/s/W2b7QMC9TgMcpqr
 
 # Extrahierte Frames: https://cloud.hs-anhalt.de/s/sjH4Am2B36FZAfY
 
@@ -34,7 +36,7 @@ Liste zu erkennender Tierarten: https://cloud.hs-anhalt.de/s/frgPmPHoPotQrpX
 
 ## Model Training
 
-1. **Prepared the Dataset**: Annotated, augmented, polished, split, and exported the data.
+1. **Prepared the Dataset**: https://cloud.hs-anhalt.de/s/W2b7QMC9TgMcpqr Annotated, augmented, polished, split, and exported data.
 2. **Installed Dependencies in our virtual environment**: Installed the necessary libraries and dependencies, including PyTorch, pycocotools, transformers, supervision, roboflow etc.
 3. **Train the Model**: Clone git repository and check correct file path destinations. Run the detrtraining script (in folder: script training) to train the model. Epochs: ~250
 
