@@ -38,7 +38,7 @@ Liste zu erkennender Tierarten: https://cloud.hs-anhalt.de/s/frgPmPHoPotQrpX
 
 1. **Prepared Dataset**: https://cloud.hs-anhalt.de/s/W2b7QMC9TgMcpqr Annotated, augmented, polished, split, and exported data.
 2. **Installed Dependencies in virtual environment**: requirements.txt installed the necessary libraries and dependencies, including PyTorch, pycocotools, transformers, supervision, roboflow etc.
-3. **Train the Model**: Clone git repository and check correct file path destinations. Run the detrtraining.py script (in folder: script training) to train the model. Epochs: ~250
+3. **Train the Model**: Clone git repository and check correct file path destinations and adjust epoch size. Run the detrtraining.py script (in folder: script training) to train the model. Epochs: ~250
 
 - write in console to run tensorboard: --logdir=C:\Users\C1\pycharmprojects\wildwatchai\tb_logs
 
